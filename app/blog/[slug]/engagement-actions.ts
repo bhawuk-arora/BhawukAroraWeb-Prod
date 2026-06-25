@@ -2,8 +2,15 @@
 
 import { createClient } from '@/utils/supabase/server';
 import { revalidatePath } from 'next/cache';
+import { currentUser } from '@clerk/nextjs/server';
 
-export async function addComment(postId: string, slug: string, userName: string, content: string, parentId?: string) {
+export async function addComment(postId: string, slug: string, content: string, parentId?: string) {
+    const user = await currentUser();
+    if (!user) {
+        throw new Error("You must be signed in to post a comment.");
+    }
+
+    const userName = user.fullName || user.username || `${user.firstName || 'User'} ${user.lastName || ''}`.trim() || "Anonymous";
     const supabase = await createClient();
     try {
         const { error } = await supabase
@@ -26,7 +33,17 @@ export async function addComment(postId: string, slug: string, userName: string,
     revalidatePath(`/blog/${slug}`);
 }
 
-export async function addRating(postId: string, slug: string, rating: number, email: string) {
+export async function addRating(postId: string, slug: string, rating: number) {
+    const user = await currentUser();
+    if (!user) {
+        throw new Error("You must be signed in to vote.");
+    }
+
+    const email = user.primaryEmailAddress?.emailAddress;
+    if (!email) {
+        throw new Error("A primary email address is required to vote.");
+    }
+
     const supabase = await createClient();
     try {
         const { error } = await supabase

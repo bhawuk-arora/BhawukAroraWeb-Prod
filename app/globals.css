@@ -204,9 +204,4 @@ code,
 .animate-blink {
   animation: blink 1s step-end infinite;
 }
-
-/* Ensure custom cursor takes priority */
-html,
-body {
-  cursor: none !important;
-}
+

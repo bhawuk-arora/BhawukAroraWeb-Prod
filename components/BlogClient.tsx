@@ -2,10 +2,11 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Search, X, Clock, Calendar, ThumbsUp } from 'lucide-react';
+import { Search, X, Clock, Calendar, ThumbsUp, LogIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Post, Category } from '@/lib/data';
 import { formatDate } from '@/lib/utils';
+import { useUser, UserButton, SignInButton } from '@clerk/nextjs';
 
 const POSTS_PER_PAGE = 8;
 
@@ -103,7 +104,7 @@ export default function BlogClient({ initialPosts }: { initialPosts: Post[] }) {
                     Technical / <br />
                     <span className="text-[var(--accent-blue)]">Blog.</span>
                 </h1>
-                <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-2xl mb-8 sm:mb-12 border-l-2 border-[var(--border)] pl-4 sm:pl-6 py-1">
+                <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-2xl border-l-2 border-[var(--border)] pl-4 sm:pl-6 py-1">
                     Essays on building scalable ML infrastructure, cloud architecture, and the craft of engineering.
                 </p>
 

@@ -5,6 +5,7 @@ import Providers from "@/components/Providers";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Suspense } from "react";
 import { Heart } from "lucide-react";
+import { ClerkProvider } from '@clerk/nextjs';
 
 export const metadata: Metadata = {
   title: {
@@ -30,31 +31,31 @@ export const metadata: Metadata = {
 };
 
 import LoadingScreen from "@/components/LoadingScreen";
-import CustomCursor from "@/components/CustomCursor";
 import NewsletterModal from "@/components/NewsletterModal";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="flex flex-col min-h-screen" suppressHydrationWarning>
-        <LoadingScreen />
-        <CustomCursor />
-        <NewsletterModal />
-        <Providers>
-          <Suspense fallback={null}>
-            <GoogleAnalytics />
-          </Suspense>
-          <Navbar />
-          <div className="flex-1">
-            {children}
-          </div>
-          <SiteFooter />
-        </Providers>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </head>
+        <body className="flex flex-col min-h-screen" suppressHydrationWarning>
+          <LoadingScreen />
+          <NewsletterModal />
+          <Providers>
+            <Suspense fallback={null}>
+              <GoogleAnalytics />
+            </Suspense>
+            <Navbar />
+            <div className="flex-1">
+              {children}
+            </div>
+            <SiteFooter />
+          </Providers>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
 
@@ -71,7 +72,7 @@ function SiteFooter() {
           {[
             { label: "GitHub", href: "https://github.com/geeky-bhawuk-arora" },
             { label: "LinkedIn", href: "https://linkedin.com/in/bhawuk-arora" },
-            { label: "Email", href: "mailto:bhawuk.arora008@gmail.com" }
+            { label: "Email", href: "mailto:contact@bhawukarora.app" }
           ].map((s) => (
             <a
               key={s.label}

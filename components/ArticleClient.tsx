@@ -2,7 +2,8 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Clock, Calendar, Check, Copy, Share2, ChevronRight, User } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Check, Copy, Share2, ChevronRight, User, LogIn } from 'lucide-react';
+import { useUser, UserButton, SignInButton } from '@clerk/nextjs';
 import { Post, CATEGORY_COLORS, CATEGORY_BG } from '@/lib/data';
 import { formatDate } from '@/lib/utils';
 import TableOfContents from '@/components/TableOfContents';

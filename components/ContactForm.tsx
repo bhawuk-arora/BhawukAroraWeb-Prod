@@ -65,7 +65,7 @@ const ContactForm = () => {
 
                     <AnimatedSection delay={200}>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-1 gap-4">
-                            <ContactCard icon={<Mail size={22} />} label="Primary Channel" value="bhawuk.arora" href="mailto:bhawuk.arora008@gmail.com" color="blue" />
+                            <ContactCard icon={<Mail size={22} />} label="Primary Channel" value="contact@bhawukarora.app" href="mailto:contact@bhawukarora.app" color="blue" />
                             <ContactCard icon={<Github size={22} />} label="Operational Source" value="geeky-bhawuk-arora" href="https://github.com/geeky-bhawuk-arora" color="gray" />
                             <ContactCard icon={<Linkedin size={22} />} label="Human Network" value="bhawuk-arora" href="https://linkedin.com/in/bhawuk-arora" color="indigo" />
                         </div>

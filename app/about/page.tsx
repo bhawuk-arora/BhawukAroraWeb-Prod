@@ -129,14 +129,14 @@ export default function AboutPage() {
                             className="p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] flex items-center gap-4"
                         >
                             <span className="text-[var(--text-muted)] w-16 uppercase font-bold tracking-widest text-[10px]">Email</span>
-                            <a href="mailto:bhawuk.arora008@gmail.com" className="text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors truncate">bhawuk.arora008@gmail.com</a>
+                            <a href="mailto:contact@bhawukarora.app" className="text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors truncate">contact@bhawukarora.app</a>
                         </motion.div>
                         <motion.div 
                             whileHover={{ scale: 1.02 }}
                             className="p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] flex items-center gap-4"
                         >
                             <span className="text-[var(--text-muted)] w-16 uppercase font-bold tracking-widest text-[10px]">GitHub</span>
-                            <a href="https://github.com/geeky-bhawuk-arora" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors truncate">geeky-bhawuk-arora</a>
+                            <a href="https://github.com/bhawuk-arora" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] hover:text-[var(--accent-blue)] transition-colors truncate">bhawuk-arora</a>
                         </motion.div>
                         <motion.div 
                             whileHover={{ scale: 1.02 }}
