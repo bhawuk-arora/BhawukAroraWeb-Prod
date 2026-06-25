@@ -76,18 +76,24 @@ export default function Navbar() {
 
                     {/* Desktop nav */}
                     <nav className="hidden md:flex items-center gap-6">
-                        {navLinks.map(link => (
-                            <Link
-                                key={link.href}
-                                href={getLinkHref(link.href)}
-                                className={`text-sm tracking-wide font-medium transition-colors duration-200 outline-none hover:text-[var(--text-primary)] ${isActive(link.href)
-                                    ? 'text-[var(--text-primary)]'
-                                    : 'text-[var(--text-secondary)]'
-                                    }`}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
+                        {navLinks.map(link => {
+                            const href = getLinkHref(link.href);
+                            const isExternal = href.startsWith('http');
+                            return (
+                                <Link
+                                    key={link.href}
+                                    href={href}
+                                    target={isExternal ? '_blank' : undefined}
+                                    rel={isExternal ? 'noopener noreferrer' : undefined}
+                                    className={`text-sm tracking-wide font-medium transition-colors duration-200 outline-none hover:text-[var(--text-primary)] ${isActive(link.href)
+                                        ? 'text-[var(--text-primary)]'
+                                        : 'text-[var(--text-secondary)]'
+                                        }`}
+                                >
+                                    {link.label}
+                                </Link>
+                            );
+                        })}
                     </nav>
 
                     {/* Socials & Clerk Auth & Menu */}
@@ -111,7 +117,7 @@ export default function Navbar() {
                             <a href="mailto:contact@bhawukarora.app" className="text-[var(--text-secondary)] hover:text-white transition-colors p-1" title="Email">
                                 <Mail size={18} />
                             </a>
-                            <a href="https://github.com/geeky-bhawuk-arora" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] hover:text-white transition-colors p-1" title="GitHub">
+                            <a href="https://github.com/bhawuk-arora" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] hover:text-white transition-colors p-1" title="GitHub">
                                 <Github size={18} />
                             </a>
                             <a href="https://linkedin.com/in/bhawuk-arora" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] hover:text-white transition-colors p-1" title="LinkedIn">
@@ -163,26 +169,32 @@ export default function Navbar() {
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.href}
-                                    href={getLinkHref(link.href)}
-                                    className={`block px-4 py-3 rounded-lg text-lg font-medium transition-colors ${isActive(link.href)
-                                        ? 'bg-[var(--bg-elevated)] text-[var(--text-primary)]'
-                                        : 'text-[var(--text-secondary)] hover:bg-[var(--bg-elevated)] hover:text-[var(--text-primary)]'
-                                        }`}
-                                    onClick={() => setMenuOpen(false)}
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
+                            {navLinks.map((link) => {
+                                const href = getLinkHref(link.href);
+                                const isExternal = href.startsWith('http');
+                                return (
+                                    <Link
+                                        key={link.href}
+                                        href={href}
+                                        target={isExternal ? '_blank' : undefined}
+                                        rel={isExternal ? 'noopener noreferrer' : undefined}
+                                        className={`block px-4 py-3 rounded-lg text-lg font-medium transition-colors ${isActive(link.href)
+                                            ? 'bg-[var(--bg-elevated)] text-[var(--text-primary)]'
+                                            : 'text-[var(--text-secondary)] hover:bg-[var(--bg-elevated)] hover:text-[var(--text-primary)]'
+                                            }`}
+                                        onClick={() => setMenuOpen(false)}
+                                    >
+                                        {link.label}
+                                    </Link>
+                                );
+                            })}
                         </div>
 
                         <div className="mt-8 pt-6 border-t border-[var(--border)] flex items-center justify-center gap-6">
                             <a href="mailto:contact@bhawukarora.app" className="text-[var(--text-secondary)] hover:text-white p-2">
                                 <Mail size={24} />
                             </a>
-                            <a href="https://github.com/geeky-bhawuk-arora" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] hover:text-white p-2">
+                            <a href="https://github.com/bhawuk-arora" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] hover:text-white p-2">
                                 <Github size={24} />
                             </a>
                             <a href="https://linkedin.com/in/bhawuk-arora" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] hover:text-white p-2">

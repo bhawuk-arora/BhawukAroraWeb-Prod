@@ -197,7 +197,7 @@ export default async function HomePage() {
                   <span className="block mt-2">More implementations arriving shortly.</span>
                 </p>
                 <a
-                  href="https://github.com/geeky-bhawuk-arora"
+                  href="https://github.com/bhawuk-arora"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[var(--bg-card)] border border-[var(--border)] text-sm font-bold text-[var(--text-primary)] hover:border-[var(--accent-blue)] hover:text-[var(--accent-blue)] transition-all group/link shadow-sm"

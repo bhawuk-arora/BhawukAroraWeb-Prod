@@ -70,7 +70,7 @@ function SiteFooter() {
 
         <div className="flex gap-6">
           {[
-            { label: "GitHub", href: "https://github.com/geeky-bhawuk-arora" },
+            { label: "GitHub", href: "https://github.com/bhawuk-arora" },
             { label: "LinkedIn", href: "https://linkedin.com/in/bhawuk-arora" },
             { label: "Email", href: "mailto:contact@bhawukarora.app" }
           ].map((s) => (
