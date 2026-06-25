@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { CheckCircle, Github, Linkedin, Mail } from "lucide-react";
+import Loader from "./Loader";
 
 const ContactForm = () => {
     const formRef = useRef<HTMLFormElement>(null);
@@ -108,7 +109,7 @@ const ContactForm = () => {
                             disabled={isSubmitting}
                             className="w-full h-10 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all disabled:opacity-50 flex items-center justify-center cursor-pointer"
                         >
-                            {isSubmitting ? 'Sending...' : 'Send'}
+                            {isSubmitting ? <Loader size="sm" color="white" /> : 'Send'}
                         </button>
                     </form>
                 ) : (
